@@ -1,6 +1,9 @@
 #ifndef tree_h
 #define tree_h
 
+#include <stdio.h>
+#include <stdlib.h>
+
 
 typedef struct Node {
 	int isLeaf;
@@ -25,6 +28,27 @@ typedef struct LeafNode {
 	int x;
 	int y;
 }LeafNode;
+
+typedef struct Stack {
+	Node** info;
+	int top;
+	int capacity;
+}Stack;
+
+Stack* CreateStack(int initialCapacity);
+
+Node* Pop(Stack* stack);
+
+void Push(Stack* stack, Node* node);
+
+void FreeStack(Stack* stack);
+
+Node* CreateInternalNode(char cut, Node* left, Node* right);
+
+Node* CreateLeafNode(int label, int width, int height);
+
+Node* BuildTreeFromPostorder(FILE* inputfile);
+
 
 
 //Node* CreateInternalNode();
