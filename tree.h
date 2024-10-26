@@ -27,6 +27,9 @@ typedef struct LeafNode {
 }LeafNode;
 
 
+//Node* CreateInternalNode();
+
+//void PreorderTraversal(Node* Node);
 
 
 #endif
