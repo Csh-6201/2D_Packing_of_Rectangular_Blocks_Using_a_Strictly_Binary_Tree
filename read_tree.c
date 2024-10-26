@@ -107,26 +107,21 @@ Node* BuildTreeFromPostorder(FILE* inputfile) {
 
 }
 
-
-
-
-
-
-/*
-void PreorderTraversal(Node* node) {
+// @brief Performs a preorder traversal of the tree and writes to the output file
+void PreorderTraversalToFile(Node* node, FILE* outputfile) {
 
 	if (node == NULL) {
 		return;
 	}
 
 	if (node->isLeaf) {
-		printf("%d(%d,%d)\n", node->leaf.label, node->leaf.width, node->leaf.height);
+		fprintf(outputfile, "%d(%d,%d)\n", node->leaf.label, node->leaf.width, node->leaf.height);
 	}
 	else {
-		print("%c", node->internal.cut);
+		fprintf(outputfile, "%c\n", node->internal.cut);
 	}
 
-	PreorderTraversal(node->internal.left);
-	PreorderTraversal(node->internal.right);
+	PreorderTraversalToFile(node->internal.left, outputfile);
+	PreorderTraversalToFile(node->internal.right, outputfile);
 
-}*/
+}

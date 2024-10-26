@@ -18,5 +18,22 @@
     <ClCompile Include="a6.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="read_tree.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="compute_dimensions.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="compute_coordinates.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="tree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
   </ItemGroup>
 </Project>

@@ -4,15 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-typedef struct Node {
-	int isLeaf;
-	union {
-		InternalNode internal;
-		LeafNode leaf;
-	};
-}Node;
-
 typedef struct InternalNode {
 	char cut;
 	int height;
@@ -28,6 +19,14 @@ typedef struct LeafNode {
 	int x;
 	int y;
 }LeafNode;
+
+typedef struct Node {
+	int isLeaf;
+	union {
+		InternalNode internal;
+		LeafNode leaf;
+	};
+}Node;
 
 typedef struct Stack {
 	Node** info;
@@ -49,11 +48,7 @@ Node* CreateLeafNode(int label, int width, int height);
 
 Node* BuildTreeFromPostorder(FILE* inputfile);
 
-
-
-//Node* CreateInternalNode();
-
-//void PreorderTraversal(Node* Node);
+void PreorderTraversalToFile(Node* node, FILE* outputfile);
 
 
 #endif
