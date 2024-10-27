@@ -50,5 +50,7 @@ Node* BuildTreeFromPostorder(FILE* inputfile);
 
 void PreorderTraversalToFile(Node* node, FILE* outputfile);
 
+void FreeNode(Node* node);
+
 
 #endif

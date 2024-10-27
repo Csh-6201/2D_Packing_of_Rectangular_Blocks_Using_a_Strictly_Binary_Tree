@@ -1,0 +1,6 @@
+﻿  a6.c
+  compute_coordinates.c
+  compute_dimensions.c
+  read_tree.c
+  Generating Code...
+C:\Users\Su-Han Cheng\Desktop\Purdue\junior\368\assignment6\2D_Packing_of_Rectangular_Blocks_Using_a_Strictly_Binary_Tree\read_tree.c(117,4): error C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.

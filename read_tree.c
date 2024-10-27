@@ -11,7 +11,16 @@
 Stack* CreateStack(int initialCapacity) {
 
 	Stack* stack = (Stack*)malloc(sizeof(Stack));
+	if (stack == NULL) {
+		exit(EXIT_FAILURE);
+	}
+
 	stack->info = (Node**)malloc(sizeof(Node*) * initialCapacity);
+	if (stack->info == NULL) {
+		free(stack);
+		exit(EXIT_FAILURE);
+	}
+
 	stack->top = -1;
 	stack->capacity = initialCapacity;
 
@@ -37,6 +46,7 @@ void Push(Stack* stack, Node* node) {
 		stack->capacity *= 2;
 		Node** newInfo = (Node**)realloc(stack->info, sizeof(Node*) * stack->capacity);
 		if (newInfo == NULL) {
+			FreeStack(stack);
 			exit(EXIT_FAILURE);
 		}
 		stack->info = newInfo;
@@ -48,6 +58,11 @@ void Push(Stack* stack, Node* node) {
 
 // @brief Free the stack memory
 void FreeStack(Stack* stack) {
+
+	while (stack->top != -1) {
+		Node* node = Pop(stack);
+		FreeNode(node);
+	}
 	
 	free(stack->info);
 	free(stack);
@@ -90,6 +105,10 @@ Node* BuildTreeFromPostorder(FILE* inputfile) {
 		if (readline[0] == 'H' || readline[0] == 'V') {
 			Node* right = Pop(stack);
 			Node* left = Pop(stack);
+			if (left == NULL || right == NULL) {
+				FreeStack(stack);
+				exit(EXIT_FAILURE);
+			}
 			Node* internalNode = CreateInternalNode(readline[0], left, right);
 			Push(stack, internalNode);
 		}
